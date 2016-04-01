@@ -1,0 +1,192 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Car Pool</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- <a href="tel:1234567890" class="fixedPhoneCallWidget"><img src="../img/phone-fixed-bar.png" alt="phone-call" /></a> -->
+
+    <div class="clearfix">
+        <div class="top-band dark-blue"></div>
+        <div class="top-band sky-blue"></div>
+        <div class="top-band grey"></div>
+    </div>
+    <div class="container-fluid main-wrapper">
+        <header class="clearfix">
+            <div class="center-layout">
+                <h1 class="logo pull-left"><a href="index.html">LOGO</a></h1>
+            </div>
+        </header>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid-0ff">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">Tariff Rates</a></li>
+                        <li><a href="#">Monthly Rates</a></li>
+                        <li><a href="#">Airport Car Hire</a></li>
+                    </ul>
+                    <ul class="pull-right nav navbar-nav login-navbar-nav">
+                        <li><img src="img/login-icon.png" alt="icon" class="login-icon" />  <a href="#">Login</a></li>
+                        <li><a href="#">Sign up</a></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+
+        <section class="search__panel">
+            <div class="center-layout" id="localRental">
+                <h4>Local Rental</h4>
+
+                <form class="form-horizontal">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-3 column">
+                            <label for="ddlFrom">From</label>
+                            <select class="form-control">
+                                <option>Mumbai</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-3 column">
+                            <label for="exampleInputEmail2">To</label>
+                            <select class="form-control">
+                                <option>---------</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-2 column">
+                            <label for="txtDepart">Depart</label>
+                            <div class="input-group">
+                                <input class="form-control" name="txtDepart" id="txtDepart" value="" placeholder="DD/MM/YYYY" />
+
+                                <span class="input-group-addon"><a href="#"><img src="../img/cal-icon.png" alt="calendar icon" /></a></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-2 column">
+                            <label for="txtReturn">Return</label>
+                            <div class="input-group">
+                                <input class="form-control" name="txtReturn" id="txtReturn" value="" placeholder="DD/MM/YYYY" />
+
+                                <span class="input-group-addon"><a href="#"><img src="../img/cal-icon.png" alt="calendar icon" /></a></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-2 column text-center">
+                            <button type="button" class="btn btn-default btn-lg search-btn" onclick="window.location='search-result.html'">Search</button>
+                        </div>
+                    </div><!-- row end -->
+                </form>
+
+            </div><!-- tab 1 content end  -->
+        </section>
+        <div class="section-wrappers">
+           
+            <article class="main-content">
+                <div class="main-content-inner__child clearfix">
+                    
+                </div>
+                <!-- main-content-inner__child end -->
+            </article>
+            <!-- main-content end -->
+        </div>
+    </div>
+    <!-- section-wrappers end -->
+    <section class="explore__block">
+        <div class="center-layout">
+            <div class="row">
+                <div class="pull-right form-holder col-xs-12 col-sm-12 col-md-4">
+                    <div class="explore--form">
+                        <form name="frmEnquiry" id="frmEnquiry" class="enquiry" novalidate>
+                            <div class="form-group">
+                                <textarea name="txtarComments" id="txtarComments" class="textarea form-control" placeholder="your enquiry" resize="noresize"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="txtEmail" id="txtEmail" class="form-control" placeholder="email" />
+                            </div>
+                            <input type="button" name="btnSubmit" id="btnSubmit" value="Submit" class="btn btn-primary btn-sm" </form>
+                    </div>
+                </div>
+                <div class="pull-right links-holder col-xs-12 col-sm-12 col-md-8">
+                    <div class="explore--links">
+                        <div class="pull-left el__box-explore">
+                            <h4>Explore</h4>
+                            <ul>
+                                <li><a href="#">Car Hire from Airports</a></li>
+                                <li><a href="#">Car Hire in Cities</a></li>
+                                <li><a href="#">Car Hire Providers</a></li>
+                                <li><a href="#">Car Hire Help</a></li>
+                            </ul>
+                        </div>
+                        <div class="pull-left el__box-company">
+                            <h4>Logoname</h4>
+                            <ul>
+                                <li><a href="#">About Logoname</a></li>
+                                <li><a href="#">Jobs</a></li>
+                                <li><a href="#">Media</a></li>
+                                <li><a href="#">Travel features & news</a></li>
+                            </ul>
+                        </div>
+                        <div class="pull-left el__box-terms hidden-xs">
+                            <h4>&nbsp;</h4>
+                            <ul>
+                                <li><a href="#">Cookie policy</a></li>
+                                <li><a href="#">Privacy policy</a></li>
+                                <li><a href="#">Terms of service</a></li>
+                            </ul>
+                        </div>
+                        <div class="pull-left el__box-extra hidden-xs">
+                            <h4>&nbsp;</h4>
+                            <ul>
+                                <li><a href="#">Flights</a></li>
+                                <li><a href="#">Hotels</a></li>
+                                <li><a href="#">Car hire</a></li>
+                                <li><a href="#">Apps</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- explore-links end -->
+                </div>
+                <!-- links-holder end -->
+            </div>
+            <!--  row end -->
+        </div>
+        <!-- center-layout end-->
+    </section>
+    <!-- explore__block end -->
+    <footer class="center-layout page-footer">
+        Copyright &copy; 2016 logo name Limited trading as <a href="#">logoname.com</a>. All rights reserved ID: 00000
+    </footer>
+    <!-- footer end -->
+    </div>
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script>
+    window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')
+    </script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
