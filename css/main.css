@@ -64,7 +64,10 @@ fieldset {
  * Allow only vertical resizing of textareas.
  */
 textarea {
-  resize: vertical; }
+  resize: none; }
+
+a:focus {
+  outline: 0; }
 
 /* ==========================================================================
    Browser Upgrade Prompt
@@ -173,6 +176,19 @@ header {
       color: inherit; }
     header .login-signup-wrap a:hover, header .login-signup-wrap a:focus, header .login-signup-wrap a:active {
       text-decoration: none; }
+  header .phone {
+    float: right;
+    margin: 30px 26px 0 0; }
+    header .phone .phone--no {
+      background: url(../img/phone-icon.png) left center no-repeat;
+      padding-left: 54px;
+      font-size: 16px;
+      min-height: 40px; }
+      header .phone .phone--no a {
+        color: #0160b2;
+        display: block; }
+        header .phone .phone--no a:hover, header .phone .phone--no a:active, header .phone .phone--no a:focus {
+          text-decoration: none; }
 
 /* ==========================================================================
    Navbar styles
@@ -304,17 +320,20 @@ header {
   margin-right: 8px; }
 .form-horizontal option {
   padding: 0; }
+.form-horizontal .input-group .form-control {
+  border-right-width: 0; }
 .form-horizontal .input-group-addon {
-  border: none;
+  border-color: #82add2;
   padding: 6px 8px 6px 0;
   background-color: #ebebeb; }
 .form-horizontal .search-btn {
-  margin-top: 9px;
+  margin-top: 11px;
   color: #005fb0;
   text-align: left;
   width: 100%;
-  -webkit-box-shadow: 1px 3px 6px rgba(58, 55, 55, 0.81);
-  box-shadow: 1px 3px 6px rgba(58, 55, 55, 0.81); }
+  padding: 10px 16px;
+  -webkit-box-shadow: 1px 4px 6px rgba(58, 55, 55, 0.81);
+  box-shadow: 1px 4px 6px rgba(58, 55, 55, 0.81); }
 
 /* ==========================================================================
    Main Content Area
@@ -365,16 +384,47 @@ header {
     Content-Boxes 
    ========================================================================== */
 .content-boxes {
+  overflow: hidden;
   margin: 20px 30px;
   font-size: 15px;
   color: #3d3d3d; }
+  .content-boxes .img-thumb-wrap {
+    position: relative;
+    overflow: hidden; }
+    .content-boxes .img-thumb-wrap .img-tooltip {
+      text-transform: uppercase;
+      color: #fff;
+      font-size: 21px;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 15px 13px 20px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      -webkit-transition: 0.2s linear;
+      -moz-transition: 0.2s linear;
+      transition: 0.2s ease-out; }
+    .content-boxes .img-thumb-wrap > img:hover + .img-tooltip {
+      bottom: -60px; }
   .content-boxes img {
-    border: 1px solid #a6a6a6; }
-  .content-boxes h3 {
+    border: 2px solid #a6a6a6; }
+  .content-boxes h3, .content-boxes h5 {
     color: #005fb0;
     font-size: 29px;
+    font-weight: bold;
     text-transform: uppercase;
-    margin-top: 12px; }
+    margin-top: 10px; }
+    .content-boxes h3 small, .content-boxes h5 small {
+      color: inherit; }
+  .content-boxes h5 {
+    font-size: 22px;
+    margin-top: 0;
+    margin-bottom: 0; }
+    .content-boxes h5 small {
+      display: block; }
+  .content-boxes .ratings {
+    font-size: 20px;
+    padding: 4px 0; }
 
 /* ==========================================================================
     Quote-Block 
@@ -463,16 +513,75 @@ header {
 
 /* footer end */
 /* ==========================================================================
-   Helper classes
+   Search Result page styling
    ========================================================================== */
 .search__panel {
-  .clear: both; }
+  background: #d2d2d2;
+  border-bottom: 1px solid #cccccc; }
+  .search__panel .search__panel--center {
+    padding: 20px 56px 29px; }
+  .search__panel h4 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #005fb0;
+    margin-bottom: 15px; }
+  .search__panel .form-horizontal .row {
+    margin: 0; }
+  .search__panel .form-horizontal label {
+    color: #005fb0; }
+  .search__panel .form-horizontal .search-btn {
+    color: #fff;
+    text-align: center;
+    padding: 10px 16px; }
+
+.search-result__content .main-content-inner__child {
+  padding-top: 0; }
+
+.content-boxes.search-result--listing {
+  margin-top: 26px; }
+  .content-boxes.search-result--listing .listing--row {
+    overflow: hidden;
+    margin-bottom: 45px; }
+  .content-boxes.search-result--listing .listing--row:last-child {
+    overflow: hidden;
+    margin-bottom: 25px; }
+
+/* ==========================================================================
+   Custom well grey block
+   ========================================================================== */
+.custom__well {
+  background-color: #ececec;
+  color: #005fb0;
+  font-size: 16px;
+  padding: 24px 45px; }
+  .custom__well h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 22px;
+    color: #005fb0;
+    font-weight: bold; }
+    .custom__well h3 small {
+      display: block;
+      color: inherit;
+      font-size: 55%;
+      font-weight: bold; }
+  .custom__well label {
+    font-weight: normal; }
+  .custom__well .asterik {
+    font-weight: bold;
+    font-size: 18px; }
+  .custom__well .form-control {
+    background-color: #fff;
+    border-color: #bebebe; }
 
 /* ==========================================================================
    Helper classes
    ========================================================================== */
-textarea {
-  resize: none; }
+em {
+  color: #525252;
+  font-size: 13px;
+  font-family: 'Trebuchet MS', arial;
+  display: inline-block; }
 
 .noMar {
   margin: 0 !important; }
@@ -487,6 +596,9 @@ textarea {
 .noPad {
   padding: 0 !important; }
 
+.noTPad {
+  padding-top: 0 !important; }
+
 .noLRPad {
   padding-left: 0 !important;
   padding-right: 0 !important; }
@@ -497,11 +609,10 @@ textarea {
   color: #626262;
   padding: 5px 12px;
   height: auto;
-  border: 0;
+  border-color: #82add2;
   box-shadow: none; }
 
 .form-control:focus {
-  border-color: transparent;
   outline: 0;
   -webkit-box-shadow: none;
   box-shadow: none; }
@@ -515,8 +626,21 @@ textarea {
   padding: 6px 18px;
   font-size: 16px; }
 
+.btn-lg {
+  border-radius: 4px;
+  padding: 6px 16px; }
+
 .btn-primary {
-  background-color: #005fb0; }
+  background-color: #005fb0;
+  color: #fff; }
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #055294;
+  border-color: #03437B; }
+
+.textarea {
+  height: 67px; }
 
 /*
  * Hide visually and from screen readers
