@@ -146,15 +146,17 @@ body {
    ========================================================================== */
 header {
   min-height: 100px;
-  overflow: auto;
-  background: url("../img/menu-bar-bg.png") left bottom repeat-x;
+  overflow: hidden;
+  width: 100%;
+  z-index: 10;
+  background: #fff url("../img/menu-bar-bg.png") left bottom repeat-x;
   font-family: 'Trebuchet MS', arial, verdana; }
   header .logo {
     color: #004784;
     font-size: 60px;
     font-weight: bold;
     line-height: 44px;
-    margin: 0;
+    margin: 0 0 0 32px;
     margin-top: 25px;
     padding: 0; }
     header .logo a {
@@ -178,7 +180,7 @@ header {
       text-decoration: none; }
   header .phone {
     float: right;
-    margin: 30px 26px 0 0; }
+    margin: 26px 25px 0 0; }
     header .phone .phone--no {
       background: url(../img/phone-icon.png) left center no-repeat;
       padding-left: 54px;
@@ -236,9 +238,22 @@ header {
     display: inline-block; }
 
 /* Navbar component - media query */
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1024px) {
+  header {
+    -webkit-transition: all 0.8s ease-out;
+    -moz-transition: all 0.8s ease-out;
+    transition: all 0.8s ease-out; }
+    header.affix {
+      min-height: 79px; }
+      header.affix h1 {
+        font-size: 40px; }
+      header.affix h1, header.affix .phone {
+        margin-top: 15px;
+        margin-bottom: 10px; }
+
   .navbar-default .navbar-collapse {
-    width: 960px;
+    width: 950px;
+    padding: 0 10px;
     margin: 0 auto; } }
 /* ==========================================================================
    Banner
@@ -575,6 +590,30 @@ header {
     border-color: #bebebe; }
 
 /* ==========================================================================
+   Additional Links
+   ========================================================================== */
+.additional__links {
+  padding: 22px 26px; }
+  .additional__links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    .additional__links ul > li {
+      display: inline-block;
+      padding: 0 10px;
+      border-right: 1px solid #757575; }
+      .additional__links ul > li > a {
+        font-size: 15px;
+        font-style: italic;
+        color: #525252; }
+        .additional__links ul > li > a :hover {
+          text-decoration: none; }
+      .additional__links ul > li:first-child {
+        padding-left: 0; }
+      .additional__links ul > li:last-child {
+        border-right: none; }
+
+/* ==========================================================================
    Helper classes
    ========================================================================== */
 em {
@@ -735,18 +774,31 @@ em {
   header {
     background: none;
     min-height: 133px;
-    padding: 0 0 0 28px; }
+    padding: 0; }
     header .logo {
-      margin-top: 34px; }
+      margin-top: 20px;
+      font-size: 40px;
+      line-height: 30px;
+      margin-left: 20px; }
     header .login-signup-wrap {
       margin-right: 20px;
       margin-top: 19px; }
+    header.affix {
+      position: static; }
+    header .phone {
+      margin: 54px -126px 0 0;
+      background: #fff;
+      padding: 5px;
+      border-radius: 4px 0 0 4px;
+      transition: all 0.2s linear; }
+      header .phone:hover {
+        margin-right: 0; }
 
   .navbar-default {
     background: rgba(0, 0, 0, 0.9);
     width: auto;
     position: absolute;
-    top: 67px;
+    top: 24px;
     right: 0;
     z-index: 10; }
     .navbar-default .navbar-header .navbar-toggle {
@@ -772,6 +824,11 @@ em {
           .navbar-default .navbar-collapse .login-navbar-nav > li > a {
             border-width: 0 1px 0 0; }
 
+  /* Search panel styles */
+  .search__panel .search__panel--center {
+    padding: 20px 25px 29px; }
+
+  /* Banner styles */
   .banner-wrapper {
     background: none;
     margin-top: 0; }
@@ -805,10 +862,32 @@ em {
 
   .main-content {
     background: none;
-    margin: 0; }
+    margin: 0;
+    /* Search result styles*/
+    /* Addition links styles */ }
     .main-content .main-content-inner__child {
       padding: 15px 0 0;
-      background: none; }
+      background: #fff; }
+    .main-content.search-result__content {
+      /* Custom well section */ }
+      .main-content.search-result__content .content-boxes {
+        margin-left: 10px;
+        margin-right: 10px; }
+        .main-content.search-result__content .content-boxes img {
+          width: 100%; }
+        .main-content.search-result__content .content-boxes .listing--row {
+          margin-bottom: 0px; }
+          .main-content.search-result__content .content-boxes .listing--row .actions {
+            margin-bottom: 20px; }
+      .main-content.search-result__content .custom__well {
+        padding-left: 25px;
+        padding-right: 25px; }
+        .main-content.search-result__content .custom__well .checkboxes-row {
+          margin-bottom: 10px; }
+          .main-content.search-result__content .custom__well .checkboxes-row > div {
+            padding: 0; }
+        .main-content.search-result__content .custom__well .form-group .text-right {
+          text-align: left; }
 
   .carousel__block h4 {
     margin-left: 22px; }
@@ -836,6 +915,15 @@ em {
    Right after iPhone 6 media queries
    ========================================================================== */
 @media screen and (min-width: 320px) and (max-width: 480px) {
+  header .phone {
+    margin: 54px -126px 0 0;
+    background: #fff;
+    padding: 5px;
+    border-radius: 4px 0 0 4px;
+    transition: all 0.2s linear; }
+    header .phone:hover {
+      margin-right: 0; }
+
   .banner .tabs__block .nav-tabs > li {
     margin-right: 5px; }
     .banner .tabs__block .nav-tabs > li > a {
@@ -852,16 +940,27 @@ em {
     clear: both; }
 
   header {
-    padding: 0 20px;
+    /* padding: 0 20px; >> converted into logo and phone into margin left and right due to 
+        top band taken into header element */
     /*/.logo{margin-top: 25px; margin-bottom: 20px;}*/ }
+    header .logo {
+      margin-left: 20px; }
+    header .phone {
+      margin-right: 20px; }
     header .login-signup-wrap {
       margin-right: 0; }
+    header.affix {
+      position: static; }
 
   .navbar-collapse .navbar-nav > li > a {
     font-size: 13px;
     padding-left: 20px;
     padding-right: 20px; }
 
+  .banner-wrapper {
+    margin-top: 0; }
+
+  /* reset to 0 due to viewport fallens into col-sm category */
   .form-horizontal .column {
     margin-bottom: 10px; }
   .form-horizontal .btn {
@@ -881,8 +980,30 @@ em {
       width: 25%; }
 
   .content-boxes {
-    font-size: 14px; }
+    font-size: 14px;
+    /* Seach result page style overwrites */
+    /* Search listing section */
+    /* Seach result page style overwrites -- END */ }
     .content-boxes h3 {
-      font-size: 22px; } }
+      font-size: 20px; }
+      .content-boxes h3 .ratings {
+        font-size: 16px; }
+    .content-boxes.search-result--listing .img-thumb-wrap .img-tooltip {
+      font-size: 16px;
+      padding: 12px 13px 10px; }
+    .content-boxes.search-result--listing h5 {
+      font-size: 19px; }
+    .content-boxes.search-result--listing .actions .btn-lg {
+      padding-left: 10px;
+      padding-right: 10px;
+      font-size: 17px; }
+
+  /* Custom well section */
+  .custom__well .checkboxes-row {
+    margin-bottom: 10px; }
+    .custom__well .checkboxes-row > div {
+      padding: 0; }
+  .custom__well .form-group .text-right {
+    text-align: left; } }
 
 /*# sourceMappingURL=main.css.map */

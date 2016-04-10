@@ -15,6 +15,9 @@
     "grunt-browser-sync": "~2.2.0"
   },
   "devDependencies": {
-    "grunt-jsdoc": "~1.1.0"
+    "grunt-jsdoc": "~1.1.0",
+    "grunt-contrib-concat": "~1.0.0",
+    "grunt-processhtml": "~0.3.13",
+    "grunt-contrib-copy": "~1.0.0"
   }
 }

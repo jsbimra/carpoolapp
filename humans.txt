@@ -7,7 +7,7 @@
 
 # THANKS
 
-    <Techved>
+    <HTML5,CSS3>
 
 # TECHNOLOGY COLOPHON
 

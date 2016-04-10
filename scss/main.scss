@@ -143,9 +143,11 @@ body{
 header{
 
     min-height: 100px; 
-    overflow: auto;
+    overflow: hidden;
+    width: 100%;
+    z-index: 10;
 
-    background: url('../img/menu-bar-bg.png') left bottom repeat-x;
+    background: #fff url('../img/menu-bar-bg.png') left bottom repeat-x;
 
     font-family: 'Trebuchet MS', arial, verdana; 
     
@@ -154,7 +156,7 @@ header{
         font-size: 60px; 
         font-weight: bold;
         line-height: 44px;
-        margin:0;
+        margin:0 0 0 32px;
         margin-top:25px;
         padding: 0; 
 
@@ -179,7 +181,7 @@ header{
 
     .phone{
         float: right;
-        margin: 30px 26px 0 0;
+        margin: 26px 25px 0 0;
         .phone--no{
             background: url(../img/phone-icon.png) left center no-repeat;
             padding-left: 54px;
@@ -194,6 +196,7 @@ header{
             }
         }
     }
+
 }
 
 /* ==========================================================================
@@ -254,9 +257,23 @@ header{
 }
 
 /* Navbar component - media query */
-@media screen and (min-width: 1200px){
+@media screen and (min-width: 1024px){
+
+    header{
+
+        -webkit-transition: all 0.8s ease-out;
+        -moz-transition: all 0.8s ease-out;
+        transition: all 0.8s ease-out;
+
+        &.affix{
+            min-height: 79px;
+
+            h1{font-size: 40px;}
+            h1, .phone{margin-top: 15px; margin-bottom: 10px;}
+        }
+    }
     .navbar-default {
-        .navbar-collapse{width: $layoutWidth; margin: 0 auto;}
+        .navbar-collapse{width: 950px; padding: 0 10px; margin: 0 auto;}
 
         .navbar-nav{
             //margin-left: -10px;
@@ -669,6 +686,40 @@ header{
 }
 
 
+
+/* ==========================================================================
+   Additional Links
+   ========================================================================== */
+.additional__links{
+    padding: 22px 26px;
+
+    & ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        & > li{
+            display: inline-block;
+            padding: 0 10px;
+            border-right: 1px solid #757575;
+
+            & > a{
+                font-size: 15px;
+                font-style: italic;
+                color: #525252;
+
+                :hover{text-decoration:none;}
+            }
+
+            &:first-child{padding-left:0;}
+            &:last-child{border-right:none;}
+        }
+    }
+}
+
+
+
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
@@ -780,9 +831,7 @@ em{ color:#525252;
     display: table; /* 2 */
 }
 
-.clearfix:after {
-    clear: both;
-}
+.clearfix:after {clear: both;}
 
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
@@ -808,18 +857,32 @@ em{ color:#525252;
     header{
         background: none;
         min-height: 133px;
-        padding: 0 0 0 28px;
+        padding: 0;
 
-        .logo{margin-top: 34px;}
+        .logo{margin-top: 20px; font-size: 40px; line-height: 30px; margin-left: 20px;}
 
         .login-signup-wrap{margin-right: 20px; margin-top: 19px;}
+
+        &.affix{position: static;}
+
+        .phone{
+            margin: 54px -126px 0 0;
+            background: #fff;
+            padding: 5px;
+            border-radius: 4px 0 0 4px;
+
+            transition: all 0.2s linear;
+
+            &:hover{margin-right:0;}
+        }
     }
 
     .navbar-default{
         background: rgba(0,0,0,0.9);
         width: auto;
         position: absolute;
-        top:67px;
+        //top:67px;
+        top:24px;
         right: 0;
         z-index: 10;
         
@@ -850,6 +913,14 @@ em{ color:#525252;
              }
         }
     }
+
+
+    /* Search panel styles */
+    .search__panel .search__panel--center {
+        padding: 20px 25px 29px;
+    }
+
+    /* Banner styles */
     .banner-wrapper{background: none; margin-top: 0;}
     .banner{
         min-height: 0;
@@ -895,7 +966,45 @@ em{ color:#525252;
 
         .main-content-inner__child{
             padding: 15px 0 0;
-            background:none;
+            background:#fff;
+        }
+
+        /* Search result styles*/
+        &.search-result__content{
+            .content-boxes{
+                margin-left: 10px;
+                margin-right: 10px;
+
+                img{width: 100%;}
+
+                .listing--row {
+                    margin-bottom: 0px;
+
+                    .actions{margin-bottom: 20px;}
+                }
+            }   
+
+            /* Custom well section */
+            .custom__well{
+                padding-left: 25px;
+                padding-right: 25px;
+
+                .checkboxes-row{
+                    margin-bottom: 10px;
+
+                    & >div{padding: 0;}            
+                }
+                .form-group{
+                    .text-right{text-align: left; }
+                }
+            }
+        }
+
+        /* Addition links styles */
+        .additional__links{
+            & ul > li{
+
+            }
         }
     }
 
@@ -933,6 +1042,19 @@ em{ color:#525252;
    ========================================================================== */
 @media screen and (min-width: 320px) and (max-width: 480px){
 
+    header{
+        
+        .phone{
+            margin: 54px -126px 0 0;
+            background: #fff;
+            padding: 5px;
+            border-radius: 4px 0 0 4px;
+
+            transition: all 0.2s linear;
+
+            &:hover{margin-right:0;};
+        }
+    }
     .banner .tabs__block .nav-tabs > li {
         margin-right: 5px;
 
@@ -950,10 +1072,18 @@ em{ color:#525252;
     .section-wrappers{ width:100%;  clear: both;}
     
     header{
-        padding: 0 20px;
+        
+        /* padding: 0 20px; >> converted into logo and phone into margin left and right due to 
+            top band taken into header element */
         /*/.logo{margin-top: 25px; margin-bottom: 20px;}*/
 
+        .logo{margin-left: 20px;}
+        .phone{margin-right: 20px;}
+
         .login-signup-wrap{margin-right: 0;}
+
+        &.affix{position: static;}
+
     }
     .navbar-collapse{
         .navbar-nav{
@@ -961,6 +1091,7 @@ em{ color:#525252;
         }
     }
 
+    .banner-wrapper{margin-top: 0;} /* reset to 0 due to viewport fallens into col-sm category */
     .banner{}
 
     .form-horizontal{
@@ -987,6 +1118,40 @@ em{ color:#525252;
     .content-boxes{
         font-size: 14px;
 
-        h3{font-size: 22px;}
+        h3{
+            font-size: 20px;
+
+            .ratings{font-size: 16px;}
+        }
+
+        /* Seach result page style overwrites */
+        /* Search listing section */
+        &.search-result--listing{
+
+            .img-thumb-wrap .img-tooltip{
+                font-size: 16px;
+                padding: 12px 13px 10px;
+            }
+
+            h5{font-size: 19px;}
+
+            .actions {
+                .btn-lg{padding-left: 10px; padding-right: 10px; font-size: 17px;}
+            }
+        }
+        /* Seach result page style overwrites -- END */        
     }
+
+    /* Custom well section */
+    .custom__well{
+        .checkboxes-row{
+            margin-bottom: 10px;
+
+            & >div{padding: 0;}            
+        }
+        .form-group{
+            .text-right{text-align: left; }
+        }
+    }
+
 }

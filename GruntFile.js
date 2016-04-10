@@ -12,6 +12,10 @@ module.exports = function(grunt){
 				options:{
 					debounceDelay: 250
 				}
+			},
+			build:{
+				files: ['*.html', 'scss/*.scss'],
+				tasks: ['sass', 'cssmin','concat', 'processhtml', 'copy']
 			}
 		},
 		sass: {
@@ -40,15 +44,74 @@ module.exports = function(grunt){
 		            configure : "jsdoc.conf.json"
 	            }
 	        }
-	    }
+	    },
+	    cssmin:{
+	    	target:{
+	    		files: [{
+	    			expand: true,
+	    			cwd: 'css',
+	    			src: ['main.css'],
+	    			dest: 'css',
+	    			ext: '.min.css'
+	    		}]
+	    	}
+	    },
+	    concat:{
+	    	dist: {
+	    		src: ['css/bootstrap.min.css','css/main.min.css'],
+	    		dest: 'build/css/all-style.min.css'
+	    	}
+	    },
+	    processhtml: {
+	    	options:{},
+	    	dist: {
+	    		files: [
+	    			{'build/index.html': ['index.html']}
+	    		]
+	    	},
+	    	custom: {
+	    		files: [
+	    			{'build/search-result.html': ['search-result.html']}
+	    		]
+	    	}
+	    },
+	    copy: {
+			main: {
+				files:[
+					{
+						expand: true,
+						src: 'img/**',
+						dest: 'build/',
+					},
+					{
+						expand: true,
+						src: 'js/**',
+						dest: 'build/',
+					}
+					,
+					{
+						expand: true,
+						src: 'fonts/**',
+						dest: 'build/',
+					}
+				]
+				
+			},
+		}
 	});
 
 	//Load NPM task
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-browser-sync');
 	grunt.loadNpmTasks('grunt-jsdoc');
+	grunt.loadNpmTasks('grunt-processhtml');
+	grunt.loadNpmTasks('grunt-contrib-copy');
+
 	//define default task
 	grunt.registerTask('default', ['browserSync', 'watch:sass']);
 	grunt.registerTask('servedoc', ['watch:jsdoc']);
+	grunt.registerTask('build', ['watch:build']);
 };
